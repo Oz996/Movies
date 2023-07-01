@@ -10,6 +10,11 @@ export const fetchMovies = createAsyncThunk("/movies", async () => {
 
 export const fetchShows = createAsyncThunk("/shows", async () => {
   const res = await api.get(`?apiKey=${APIKey}&s=Friends&type=series`);
+  return res.data;
+});
+
+export const fetchDetails = createAsyncThunk("/details", async (id) => {
+  const res = await api.get(`?apiKey=${APIKey}&i=${id}&plot=full`);
   console.log(res);
   return res.data;
 });
@@ -17,6 +22,7 @@ export const fetchShows = createAsyncThunk("/shows", async () => {
 const initialState = {
   movies: {},
   shows: {},
+  movieOrShow: {}
 };
 
 const displaySlice = createSlice({
@@ -44,10 +50,15 @@ const displaySlice = createSlice({
       builder.addCase(fetchShows.fulfilled, (state, action) => {
         state.shows = action.payload;
       });
+      builder.addCase(fetchDetails.fulfilled, (state, action) => {
+        console.log("fetch details: ", action.payload)
+        state.movieOrShow = action.payload;
+      });
   },
 });
 
 export const { addMovies, addShows } = displaySlice.actions;
 export const getAllMovies = (state) => state.display.movies;
 export const getAllShows = (state) => state.display.shows
+export const getSelectedData = (state) => state.display.movieOrShow
 export default displaySlice.reducer;
