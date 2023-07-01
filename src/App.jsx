@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header";
+import Movie from "./pages/Movie";
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <Routes>
         <Route element={<Header />}>
           <Route path="/" element={<Home />} />
+          <Route path="/movie/:id" element={<Movie/>}/>
         </Route>
       </Routes>
     </div>
