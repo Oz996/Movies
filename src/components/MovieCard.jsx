@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const MovieCard = ({ movie }) => {
 
   return (
-      <article className="bg-slate-800 text-center rounded-sm">
+      <article className="bg-slate-800 text-center rounded-sm w-52">
         <Link to={`/movie/${movie.imdbID}`}>
-      <div className="w-40 h-60 mx-auto">
-        <img className="w-full h-full object-cover" src={movie.Poster} alt={movie.Title} />
+      <div className="w-full h-80 mx-auto">
+        <img className="w-full h-full object-cover hover:opacity-80" src={movie.Poster} alt={movie.Title} />
       </div>
       <h1 className="text-white hover:text-blue-400 pt-2 px-2">{movie.Title}</h1>
       <h2 className="text-white text-sm pt-2 pb-1">{movie.Year}</h2>

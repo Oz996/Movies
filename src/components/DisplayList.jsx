@@ -27,14 +27,14 @@ const MovieList = () => {
   return (
     <section className="w-11/12 mx-auto">
       <h1 className="text-xl text-white pt-5">Latest Movies</h1>
-      <div className="grid grid-rows-1 gap-3 grid-flow-col pt-6">
+      <div className="grid grid-rows-1 gap-3 grid-flow-col pt-6 overflow-x-scroll">
         {movies.Search &&
           movies.Search.map((movie, index) => (
             <MovieCard key={index} movie={movie} />
           ))}
       </div>
       <h1 className="text-xl text-white pt-5">Latest Shows</h1>
-      <div className="grid grid-rows-1 gap-3 grid-flow-col pt-6">
+      <div className="grid grid-rows-1 gap-3 grid-flow-col pt-6 overflow-x-scroll">
         {shows.Search &&
           shows.Search.map((show, index) => (
             <ShowCard key={index} show={show} />

@@ -9,7 +9,7 @@ const Header = () => {
     <>
       <nav className="w-screen h-16 bg-slate-800 flex">
         <div className="flex w-10/12 m-auto items-center justify-between">
-          <h1 className="text-white uppercase text-3xl">movies</h1>
+           <NavLink to="/" className="text-white uppercase text-3xl">movies</NavLink>
           <div className="flex gap-6">
             <NavLink className="text-white"> Movies</NavLink>
             <NavLink className="text-white"> TV Shows</NavLink>
