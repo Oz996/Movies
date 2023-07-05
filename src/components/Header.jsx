@@ -2,9 +2,12 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import {CgProfile} from 'react-icons/cg'
 import {AiOutlineSearch} from 'react-icons/ai'
+import SearchBar from "./SearchBar";
+import { useState } from "react";
 
 const Header = () => {
   const { isAuthenticated, loginWithPopup, logout } = useAuth0();
+  const [searchBar, setSearchBar] = useState(false)
   return (
     <>
       <nav className="w-screen h-16 bg-slate-800 flex">
@@ -22,10 +25,11 @@ const Header = () => {
                 Login
               </button>
             )}
-            <AiOutlineSearch size={23} className="text-white cursor-pointer"/>
+            <AiOutlineSearch onClick={() => setSearchBar(prev => !prev)} size={23} className="text-white cursor-pointer"/>
           </div>
         </div>
       </nav>
+      {searchBar && <SearchBar/>}
       <Outlet />
     </>
   );

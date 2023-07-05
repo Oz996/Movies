@@ -6,7 +6,6 @@ import ShowCard from "./ShowCard";
 const MovieList = () => {
   const movies = useSelector(getAllMovies);
   const shows = useSelector(getAllShows);
-  console.log(shows);
 
   if (movies.Response === "False") {
     return (

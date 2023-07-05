@@ -15,6 +15,11 @@ export const fetchShows = createAsyncThunk("/shows", async () => {
 
 export const fetchDetails = createAsyncThunk("/details", async (id) => {
   const res = await api.get(`?apiKey=${APIKey}&i=${id}&plot=full`);
+  return res.data;
+});
+
+export const searchMovie = createAsyncThunk("/search", async (search) => {
+  const res = await api.get(`?apiKey=${APIKey}&s=${search}`);
   console.log(res);
   return res.data;
 });
@@ -22,7 +27,9 @@ export const fetchDetails = createAsyncThunk("/details", async (id) => {
 const initialState = {
   movies: {},
   shows: {},
-  movieOrShow: {}
+  movieOrShow: {},
+  search: {},
+  loading: false,
 };
 
 const displaySlice = createSlice({
@@ -33,13 +40,11 @@ const displaySlice = createSlice({
       state.movies = action.payload;
     },
     addShows(state, action) {
-        state.shows = action.payload
-    }
+      state.shows = action.payload;
+    },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchMovies.pending, () => {
-      console.log("pending");
-    }),
+    builder.addCase(fetchMovies.pending, () => {}),
       builder.addCase(fetchMovies.fulfilled, (state, action) => {
         console.log("fetch success");
         state.movies = action.payload;
@@ -50,15 +55,26 @@ const displaySlice = createSlice({
       builder.addCase(fetchShows.fulfilled, (state, action) => {
         state.shows = action.payload;
       });
-      builder.addCase(fetchDetails.fulfilled, (state, action) => {
-        console.log("fetch details: ", action.payload)
-        state.movieOrShow = action.payload;
+    builder.addCase(fetchDetails.fulfilled, (state, action) => {
+      console.log("fetch details: ", action.payload);
+      state.movieOrShow = action.payload;
+    }),
+      builder.addCase(searchMovie.pending, (state) => {
+        state.loading = true;
       });
+    builder.addCase(searchMovie.fulfilled, (state, action) => {
+      state.loading = false;
+      state.search = action.payload;
+    });
+    builder.addCase(searchMovie.rejected, (state) => {
+      state.loading = false;
+    });
   },
 });
 
 export const { addMovies, addShows } = displaySlice.actions;
 export const getAllMovies = (state) => state.display.movies;
-export const getAllShows = (state) => state.display.shows
-export const getSelectedData = (state) => state.display.movieOrShow
+export const getAllShows = (state) => state.display.shows;
+export const getSelectedData = (state) => state.display.movieOrShow;
+export const getSearchData = (state) => state.display.search;
 export default displaySlice.reducer;

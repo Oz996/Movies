@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import MovieList from "../components/DisplayList";
+import DisplayList from "../components/DisplayList";
 import { fetchMovies, fetchShows } from "../redux/display/displaySlice";
 
 const Home = () => {
@@ -12,8 +12,8 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <section className="w-screen h-screen bg-slate-600">
-      <MovieList />
+    <section className="w-screen min-h-screen bg-slate-600">
+      <DisplayList />
     </section>
   );
 };
