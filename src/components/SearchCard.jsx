@@ -13,8 +13,7 @@ const SearchCard = ({ search }) => {
         />
       </div>
       <h1 className="pt-2 px-2 font-semibold">{search.Title}</h1>
-      <h2 className="text-sm pt-2">{search.Year}</h2>
-      <h3 className="opacity-60 text-sm">{search.Type}</h3>
+      <h2 className="text-sm pt-2 ">{search.Year}</h2>
       </Link>
     </article>
   );

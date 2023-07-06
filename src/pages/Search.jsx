@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import { getSearchData } from "../redux/display/displaySlice"
 import SearchCard from "../components/SearchCard"
+import Loader from "../utils/Loader/Loader"
 
 const Search = () => {
     const searchResults = useSelector(getSearchData)
@@ -8,7 +9,7 @@ const Search = () => {
     console.log(searchResults)
 
     if (isLoading) {
-        return <div> Loading...</div>
+        return <Loader/>
     }
 
     if (searchResults.Response == "False") {

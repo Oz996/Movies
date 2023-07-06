@@ -59,9 +59,25 @@ const Details = () => {
           <div className="w-10/12 mx-auto">
             <p className="w-9/12">{data.Plot}</p>
           </div>
-          <div className="flex flex-col gap-6 w-10/12 mx-auto">
-            <div className="w-9/12">
-              <p className="mb-2 mt-5">
+          <div className="gap-6 w-10/12 mx-auto">
+            <div className="w-5/12">
+              <div className="grid grid-cols-2 grid-rows-2">
+                <span className="font-semibold">Genre:</span>
+                <span>{data.Genre}</span>
+              </div>
+              <div className="grid grid-cols-2 grid-rows-2">
+                <span className="font-semibold">Country:</span>
+                <span>{data.Country}</span>
+              </div>
+              <div className="grid grid-cols-2 grid-rows-2">
+                <span className="font-semibold">Language:</span>
+                <span>{data.Language}</span>
+              </div>
+              <div className="grid grid-cols-2 grid-rows-2">
+                <span className="font-semibold">Awards:</span>
+                <span>{data.Awards}</span>
+              </div>
+              {/* <p className="mb-2 mt-5">
                 <span className="font-semibold">Genre:</span> {data.Genre}
               </p>
               <p className="mb-2 mt-7">
@@ -72,7 +88,7 @@ const Details = () => {
               </p>
               <p className="mb-2 mt-7">
                 <span className="font-semibold">Awards:</span> {data.Awards}
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
