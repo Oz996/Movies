@@ -1,1 +1,1 @@
-export const APIKey = "3cbfac5f"
+export const APIKey = import.meta.env.OMDB_API_KEY
