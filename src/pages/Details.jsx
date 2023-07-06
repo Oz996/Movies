@@ -6,7 +6,7 @@ import { AiTwotoneStar } from "react-icons/ai";
 import { BiSolidUpvote, BiTime, BiSolidCalendar } from "react-icons/bi";
 import NameCard from "../components/NameCard";
 
-const Movie = () => {
+const Details = () => {
   const { imdbID } = useParams();
   const dispatch = useDispatch();
   const data = useSelector(getSelectedData);
@@ -59,6 +59,22 @@ const Movie = () => {
           <div className="w-10/12 mx-auto">
             <p className="w-9/12">{data.Plot}</p>
           </div>
+          <div className="flex flex-col gap-6 w-10/12 mx-auto">
+            <div className="w-9/12">
+              <p className="mb-2 mt-5">
+                <span className="font-semibold">Genre:</span> {data.Genre}
+              </p>
+              <p className="mb-2 mt-7">
+                <span className="font-semibold">Country:</span> {data.Country}
+              </p>
+              <p className="mb-2 mt-7">
+                <span className="font-semibold">Language:</span> {data.Language}
+              </p>
+              <p className="mb-2 mt-7">
+                <span className="font-semibold">Awards:</span> {data.Awards}
+              </p>
+            </div>
+          </div>
         </div>
         <div>
           <img className="pt-40 w-72 pb-3" src={data.Poster} alt={data.Title} />
@@ -66,10 +82,9 @@ const Movie = () => {
             <span className="font-semibold">{data.Title}</span>
           </div>
         </div>
-        <div></div>
       </div>
     </section>
   );
 };
 
-export default Movie;
+export default Details;

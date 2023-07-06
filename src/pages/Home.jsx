@@ -12,9 +12,9 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <section className="w-screen min-h-screen bg-slate-600">
+
       <DisplayList />
-    </section>
+
   );
 };
 

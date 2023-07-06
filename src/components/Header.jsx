@@ -29,7 +29,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      {searchBar && <SearchBar/>}
+      {searchBar && <SearchBar setSearchBar={setSearchBar}/>}
       <Outlet />
     </>
   );

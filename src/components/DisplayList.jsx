@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { getAllMovies, getAllShows } from "../redux/display/displaySlice";
-import MovieCard from "./MovieCard";
-import ShowCard from "./ShowCard";
+import DisplayCard from "./DisplayCard";
 
 const MovieList = () => {
   const movies = useSelector(getAllMovies);
@@ -28,15 +27,15 @@ const MovieList = () => {
       <h1 className="text-xl text-white pt-5">Latest Movies</h1>
       <div className="grid grid-rows-1 gap-3 grid-flow-col pt-6 overflow-x-scroll">
         {movies.Search &&
-          movies.Search.map((movie, index) => (
-            <MovieCard key={index} movie={movie} />
+          movies.Search.map((data, index) => (
+            <DisplayCard key={index} data={data} />
           ))}
       </div>
       <h1 className="text-xl text-white pt-5">Latest Shows</h1>
       <div className="grid grid-rows-1 gap-3 grid-flow-col pt-6 overflow-x-scroll">
         {shows.Search &&
-          shows.Search.map((show, index) => (
-            <ShowCard key={index} show={show} />
+          shows.Search.map((data, index) => (
+            <DisplayCard key={index} data={data} />
           ))}
       </div>
     </section>

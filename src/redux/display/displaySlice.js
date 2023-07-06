@@ -18,8 +18,8 @@ export const fetchDetails = createAsyncThunk("/details", async (id) => {
   return res.data;
 });
 
-export const searchMovie = createAsyncThunk("/search", async (search) => {
-  const res = await api.get(`?apiKey=${APIKey}&s=${search}`);
+export const searchMovie = createAsyncThunk("/search", async (title) => {
+  const res = await api.get(`?apiKey=${APIKey}&s=${title}`);
   console.log(res);
   return res.data;
 });

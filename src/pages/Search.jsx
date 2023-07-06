@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { getSearchData } from "../redux/display/displaySlice"
+import SearchCard from "../components/SearchCard"
 
 const Search = () => {
     const searchResults = useSelector(getSearchData)
@@ -10,18 +11,21 @@ const Search = () => {
         return <div> Loading...</div>
     }
 
-    if (searchResults.length === 0) {
-        return <div>No search results found</div>
+    if (searchResults.Response == "False") {
+        return <div className="text-white w-6/12 mx-auto pt-10">No search results found</div>
     }
 
   return (
-    <section>
-        {searchResults && searchResults.map((data)=> (
-            <div key={data.imdbID}>
-                <h2>{data.Title}</h2>
-            </div>
-        ))}
+    <section className="w-11/12 mx-auto">
+      <h1 className="text-xl text-white pt-5">Search Results</h1>
+      <div className="grid grid-rows-2 gap-3 gap-y-16 grid-flow-col pt-6">
+        {searchResults.Search &&
+          searchResults.Search.map((search, index) => (
+            <SearchCard key={index} search={search} />
+          ))}
+      </div>
     </section>
+
   )
 }
 
