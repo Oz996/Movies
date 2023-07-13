@@ -18,5 +18,4 @@ const DisplayCard = ({ data }) => {
   );
 };
 
-
 export default DisplayCard;

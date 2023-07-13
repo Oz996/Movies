@@ -11,11 +11,7 @@ const Home = () => {
     dispatch(fetchShows());
   }, [dispatch]);
 
-  return (
-
-      <DisplayList />
-
-  );
+  return <DisplayList />;
 };
 
 export default Home;

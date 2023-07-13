@@ -77,18 +77,6 @@ const Details = () => {
                 <span className="font-semibold">Awards:</span>
                 <span>{data.Awards}</span>
               </div>
-              {/* <p className="mb-2 mt-5">
-                <span className="font-semibold">Genre:</span> {data.Genre}
-              </p>
-              <p className="mb-2 mt-7">
-                <span className="font-semibold">Country:</span> {data.Country}
-              </p>
-              <p className="mb-2 mt-7">
-                <span className="font-semibold">Language:</span> {data.Language}
-              </p>
-              <p className="mb-2 mt-7">
-                <span className="font-semibold">Awards:</span> {data.Awards}
-              </p> */}
             </div>
           </div>
         </div>
