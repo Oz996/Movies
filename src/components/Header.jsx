@@ -13,16 +13,15 @@ const Header = () => {
       <nav className="w-screen h-16 bg-slate-800 flex">
         <div className="flex w-10/12 m-auto items-center justify-between">
           <NavLink to="/" className="text-white uppercase text-3xl">
-            movies
+           m<span className="max-sm:hidden">ovies</span> 
           </NavLink>
           <div className="flex gap-6">
-            <NavLink className="text-white"> Movies</NavLink>
-            <NavLink className="text-white"> TV Shows</NavLink>
+            <NavLink className="text-white">Movies</NavLink>
+            <NavLink className="text-white">TV Shows</NavLink>
           </div>
           <div className="flex items-center gap-3">
             {isAuthenticated ? (
               <span onClick={logout} className="text-white">
-                {" "}
                 <CgProfile size={35} />
               </span>
             ) : (

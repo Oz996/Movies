@@ -23,16 +23,16 @@ const MovieList = () => {
   }
 
   return (
-    <section className="w-11/12 mx-auto">
-      <h1 className="text-xl text-white pt-5">Latest Movies</h1>
-      <div className="grid grid-rows-1 gap-3 grid-flow-col pt-6 overflow-x-scroll">
+    <section className="w-10/12 mx-auto">
+      <h1 className="text-xl text-white pt-4 max-sm:text-center max-sm:text-2xl max-sm:py-5">Latest Movies</h1>
+      <div className="grid grid-rows-1 gap-3 grid-flow-col pt-4 overflow-x-scroll max-sm:flex flex-col items-center max-sm:overflow-hidden max-sm:gap-y-10">
         {movies.Search &&
           movies.Search.map((data, index) => (
             <DisplayCard key={index} data={data} />
           ))}
       </div>
-      <h1 className="text-xl text-white pt-5">Latest Shows</h1>
-      <div className="grid grid-rows-1 gap-3 grid-flow-col pt-6 overflow-x-scroll">
+      <h1 className="text-xl text-white pt-4 max-sm:text-center max-sm:text-2xl max-sm:py-5">Latest Shows</h1>
+      <div className="grid grid-rows-1 gap-3 grid-flow-col pt-4 overflow-x-scroll max-sm:flex flex-col items-center max-sm:overflow-hidden max-sm:gap-y-10">
         {shows.Search &&
           shows.Search.map((data, index) => (
             <DisplayCard key={index} data={data} />
