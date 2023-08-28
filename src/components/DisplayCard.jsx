@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 const DisplayCard = ({ data }) => {
   return (
     <article className="bg-slate-800 text-center rounded-sm w-[11.6rem] h-[23.5rem] hover:text-blue-400 text-white max-sm:w-[13rem]">
-      <Link to={`/${data.imdbID}`}>
+      <Link
+        to={`/${data.imdbID}`}
+        className="hover:text-blue-400 hover:opacity-80 duration-200"
+      >
         <div className="w-full mx-auto">
           <img
-            className="w-full h-[18.3rem] object-fill hover:opacity-80"
+            className="w-full h-[18.3rem] object-fill"
             src={data.Poster}
             alt={data.Title}
           />

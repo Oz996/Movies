@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 
 const SearchCard = ({ search }) => {
   return (
-    <article className="bg-slate-800 w-[13rem] min-h-[24rem] text-center rounded-xl hover:text-blue-400 text-white cursor-pointer">
-      <Link to={`/${search.imdbID}`}>
+    <article className="bg-slate-800 w-[13rem] min-h-[24rem] text-center rounded-xl text-white cursor-pointer">
+      <Link
+        to={`/${search.imdbID}`}
+        className="hover:text-blue-400 hover:opacity-80 duration-200"
+      >
         <div className="w-[13rem] h-[18rem] mx-auto">
           <img
-            className="w-full h-full object-fill hover:opacity-80"
+            className="w-full h-full object-fill"
             src={search.Poster}
             alt={search.Title}
           />
